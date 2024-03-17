@@ -71,7 +71,7 @@ export default function SideBox({ phase, data }) {
                     phase === 0 ? keywords.includes(item) : title === item
                   }
                   name="list-item"
-                  type={phase === 0 || phase === 2 ? "checkbox" : "radio"}
+                  type="checkbox"
                   value={item}
                   onChange={(e) => {
                     if (phase === 0)

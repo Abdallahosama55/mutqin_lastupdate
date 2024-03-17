@@ -22,12 +22,15 @@ import {
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import "./editor-panel.css";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 const EditorPanel = () => {
   const { breakpoint } = useBreakpoint(BREAKPOINTS, "mobile");
   const isBelowDesktop = breakpoint !== "desktop";
   const state = useAppSelector((state) => state);
+
+  const location = useLocation();
   const editor = useEditor({
-    content: state.checker.content || "",
+    content: location.state?.article || "",
     editable: true,
     onUpdate: ({ editor }) => {
       dispatch(setContent(editor.getHTML()));
@@ -86,21 +89,22 @@ const EditorPanel = () => {
         className={`${
           isBelowDesktop ? "px-0" : "px-5 h-100"
         } m-auto editor-panel`}
-        gap={4}>
-        <Stack
-          className="justify-content-center"
-          direction="horizontal">
+        gap={4}
+      >
+        <Stack className="justify-content-center" direction="horizontal">
           <EditorToolbar editor={editor} />
         </Stack>
         <Stack
           className="flex-fill editor border rounded-3 fs-5 position-relative p-4"
           style={{
             minHeight: isBelowDesktop ? "75vh" : "",
-          }}>
+          }}
+        >
           <Stack
             style={{
               marginTop: "3rem",
-            }}>
+            }}
+          >
             <Editor editor={editor} />
           </Stack>
         </Stack>

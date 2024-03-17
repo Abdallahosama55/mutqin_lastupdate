@@ -1,13 +1,8 @@
 import styles from "./main.module.css";
 
-export default function NumWords({
-  changeHandler,
-  blurHandler,
-  value,
-  className,
-}) {
+export default function NumWords({ changeHandler, blurHandler, value }) {
   return (
-    <div className={`${className} mb-3`}>
+    <div className={` mb-3`}>
       <label htmlFor="num_Article_words" className="form-label mb-1">
         عدد كلمات المقال
       </label>

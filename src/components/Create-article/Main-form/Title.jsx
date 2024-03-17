@@ -6,7 +6,7 @@ export default function Title({ className }) {
   const dispatch = useDispatch();
 
   return (
-    <div className={`${className} mb-3`}>
+    <div className={` mb-3`}>
       <label htmlFor="title" className="form-label mb-1">
         العنوان الرئيسى
       </label>

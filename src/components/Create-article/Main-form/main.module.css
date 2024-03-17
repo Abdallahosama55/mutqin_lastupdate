@@ -89,7 +89,37 @@
 }
 
 .form-select.form-select {
-  background-position: left 0.75rem center;
+  width: 100%;
+  font-family: "GE SS Two";
+  border-radius: 5px;
+}
+.form-select.form-select.form-select.form-select div {
+  padding-right: 14px;
+  padding-left: 32px;
+}
+
+.form-select.form-select svg {
+  right: unset;
+  left: 7px;
+}
+
+.form-select.form-select fieldset {
+  border: var(--bs-border-width) solid var(--bs-border-color);
+}
+.form-select.form-select:hover fieldset {
+  border: var(--bs-border-width) solid var(--bs-border-color);
+}
+
+.select-item.select-item {
+  color: #001b79;
+  direction: rtl;
+  border: 1px solid #dcdcdc;
+  margin: 6px;
+  font-family: "GE SS Two";
+  border-radius: 9px;
+  font-size: calc(10px + 0.2vw);
+  font-weight: 500;
+  min-height: unset;
 }
 
 .skip.skip {

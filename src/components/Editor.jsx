@@ -13,12 +13,15 @@ import {
 import { useLocation } from "react-router-dom";
 
 const Editor = ({ editor }) => {
+  const location = useLocation();
+
   const [askAi, setAskAi] = useState(false);
   const dispatch = useAppDispatch();
   const state = useAppSelector((state) => state);
   const onAskAi = (content) => {
     dispatch(editorAskAi({ content }));
   };
+
   useEffect(() => {
     editor
       .chain()
@@ -46,7 +49,7 @@ const Editor = ({ editor }) => {
         <input
           type="text"
           className="text-secondary fw-medium border-0 outline-0 "
-          value={state.checker.title}
+          value={location.state?.title || state.checker.title}
           placeholder="أكتب اسم للملف"
           onChange={(e) => {
             dispatch(setTitle(e.target.value));

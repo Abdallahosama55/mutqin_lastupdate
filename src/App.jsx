@@ -57,30 +57,12 @@ function App() {
           <WrapperComponent>
             <Routes>
               <Route>
-                <Route
-                  path="/signin"
-                  element={<SignIn />}
-                />
-                <Route
-                  path="/signup"
-                  element={<SignUp />}
-                />
-                <Route
-                  path="/forgotpassword"
-                  element={<ForgotPassword />}
-                />
-                <Route
-                  path="/verifyaccount"
-                  element={<VerifyAccount />}
-                />
-                <Route
-                  path="/newpassword"
-                  element={<NewPassword />}
-                />
-                <Route
-                  path="/newpassword/:id"
-                  element={<NewPassword />}
-                />
+                <Route path="/signin" element={<SignIn />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/forgotpassword" element={<ForgotPassword />} />
+                <Route path="/verifyaccount" element={<VerifyAccount />} />
+                <Route path="/newpassword" element={<NewPassword />} />
+                <Route path="/newpassword/:id" element={<NewPassword />} />
 
                 <Route
                   element={
@@ -91,56 +73,25 @@ function App() {
                         <AppLayoutmot />
                       </Protection>
                     )
-                  }>
+                  }
+                >
                   {/* <Route
                 index
                 path="/myaccount"
                 element={<MyAccount />}
               /> */}
-                  <Route
-                    path="/control"
-                    element={<Control />}
-                  />
-                  <Route
-                    path="/content-section"
-                    element={<ContentSection />}
-                  />
-                  <Route
-                    path="/add-ads/:slug"
-                    element={<Add_Ads />}
-                  />
-                  <Route
-                    path="/reformulate"
-                    element={<Reformulate />}
-                  />
-                  <Route
-                    path="/create-article"
-                    element={<CreateArticle />}
-                  />
-                  <Route
-                    path="/create-image"
-                    element={<CreateImage />}
-                  />
-                  <Route
-                    path="/editor"
-                    element={<EditorPage />}
-                  />
-                  <Route
-                    path="/editor/:id"
-                    element={<EditorPage />}
-                  />
-                  <Route
-                    path="/myplan"
-                    element={<MyPlan />}
-                  />
+                  <Route path="/control" element={<Control />} />
+                  <Route path="/content-section" element={<ContentSection />} />
+                  <Route path="/add-ads/:slug" element={<Add_Ads />} />
+                  <Route path="/reformulate" element={<Reformulate />} />
+                  <Route path="/create-article" element={<CreateArticle />} />
+                  <Route path="/create-image" element={<CreateImage />} />
+                  <Route path="/editor" element={<EditorPage />} />
+                  <Route path="/editor/:id" element={<EditorPage />} />
+                  <Route path="/myplan" element={<MyPlan />} />
                   <Route
                     path="*"
-                    element={
-                      <Navigate
-                        replace
-                        to="/control"
-                      />
-                    }
+                    element={<Navigate replace to="/control" />}
                   />
                 </Route>
                 <Route
@@ -152,20 +103,12 @@ function App() {
                         <Layout />
                       </Protection>
                     )
-                  }>
-                  <Route
-                    path="/detector"
-                    element={<CheckAndRedirect />}
-                  />
+                  }
+                >
+                  <Route path="/detector" element={<CheckAndRedirect />} />
 
-                  <Route
-                    path="/detector/:id"
-                    element={<Home />}
-                  />
-                  <Route
-                    path="/detector"
-                    element={<Home />}
-                  />
+                  <Route path="/detector/:id" element={<Home />} />
+                  <Route path="/detector" element={<Home />} />
                 </Route>
                 <Route
                   element={
@@ -176,25 +119,14 @@ function App() {
                         <Layout />
                       </Protection>
                     )
-                  }>
-                  <Route
-                    index
-                    path="/myaccount"
-                    element={<MyAccount />}
-                  />
+                  }
+                >
+                  <Route index path="/myaccount" element={<MyAccount />} />
                 </Route>
               </Route>
-              <Route
-                path={"/chat"}
-                element={<ChatLayout />}>
-                <Route
-                  index
-                  element={<Welcome />}
-                />
-                <Route
-                  path={":chatId"}
-                  element={<NormalChat />}
-                />
+              <Route path={"/chat"} element={<ChatLayout />}>
+                <Route index element={<Welcome />} />
+                <Route path={":chatId"} element={<NormalChat />} />
               </Route>
             </Routes>
           </WrapperComponent>
@@ -251,10 +183,7 @@ const WrapperComponent = ({ children }) => {
 
   return (
     <>
-      <EndTrial
-        onClose={() => setEndTrial(false)}
-        show={endTrial}
-      />
+      <EndTrial onClose={() => setEndTrial(false)} show={endTrial} />
       {children}
     </>
   );

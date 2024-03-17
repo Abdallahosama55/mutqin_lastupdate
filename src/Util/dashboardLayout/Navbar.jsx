@@ -76,7 +76,8 @@ const Navbar = () => {
     <div
       dir="rtl"
       style={{ width: "97%" }}
-      className=" d-flex  nav-container .align-items-center align-items-center justify-content-between gap-2 flex-row ">
+      className=" d-flex  nav-container .align-items-center align-items-center justify-content-between gap-2 flex-row "
+    >
       {/* <div className=" nav-input-container flex-grow-1 "></div> */}
       <div className=" d-flex gap-2  align-items-center">
         <div className=" d-flex justify-content-center align-items-center">
@@ -107,7 +108,8 @@ const Navbar = () => {
             <div
               onClick={() => setShowUsage(!showUsage)}
               style={{ cursor: "pointer" }}
-              className="d-flex align-items-center">
+              className="d-flex align-items-center"
+            >
               {showUsage ? (
                 <IoIosArrowDown
                   className="text-basic fw-medium"
@@ -138,11 +140,11 @@ const Navbar = () => {
                 </div>
                 <div className="all-words d-flex justify-content-between ">
                   <span> تصميم</span>
-                  <span>0 / 5000</span>
+                  <span>0 / 15</span>
                 </div>
                 <div className="all-words d-flex justify-content-between ">
                   <span>GPT-4</span>
-                  <span>8 / 5000</span>
+                  <span>0 / 8</span>
                 </div>
               </div>
             )}
@@ -152,17 +154,16 @@ const Navbar = () => {
         <button
           onClick={goToPlan}
           className="btn-upgrade  ms-3   rounded-3
-        p-1 ps-4 pe-4">
+        p-1 ps-4 pe-4"
+        >
           ترقية
         </button>
 
         <button
           onClick={() => setNavDroplist(!navDroplist)}
-          className="nav-icon ">
-          <img
-            className="nav-icon "
-            src={avatar}
-          />
+          className="nav-icon "
+        >
+          <img className="nav-icon " src={avatar} />
         </button>
         {navDroplist && (
           <div className=" position-absolute  user-list">
@@ -179,7 +180,8 @@ const Navbar = () => {
                 </button>
                 <button
                   onClick={goToPlan}
-                  className=" button-user-list align-items-center d-flex gap-1 ">
+                  className=" button-user-list align-items-center d-flex gap-1 "
+                >
                   <img
                     src={plan}
                     alt="myaccout"
@@ -213,7 +215,8 @@ const Navbar = () => {
                   backgroundColor: "white",
                   outline: "none",
                 }}
-                className=" d-flex  pt-3  align-items-center gap-2">
+                className=" d-flex  pt-3  align-items-center gap-2"
+              >
                 <img
                   src={logoutIcon}
                   style={{ maxWidth: "20px", maxHeight: "20px" }}
@@ -224,7 +227,8 @@ const Navbar = () => {
                     fontSize: "12px",
                     color: "#000",
                     fontWeight: "600",
-                  }}>
+                  }}
+                >
                   تسجيل الخروج
                 </div>
               </button>

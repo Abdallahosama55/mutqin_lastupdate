@@ -65,23 +65,22 @@ const HistoryArticles = () => {
   }
   return (
     <Stack
-      className={`flex-fill controlheight position-fixed   bottom-0 bg-light py-4 border-start px-3 bg-ligh`}
+      className={`flex-fill position-fixed h-100 top-0 bg-light py-4 border-start px-3 bg-ligh`}
       style={{
         transform: showHistory ? "translateX(0)" : "translateX(150%)",
         width: isBelowDesktop ? "100%" : "230px",
         maxHeight: "100vh",
-        height: "calc(100vh - 70px)",
         overflowY: "auto",
         zIndex: 100,
       }}
-      gap={3}>
+      gap={3}
+    >
       <div
         className="d-flex justify-content-between"
-        style={{ fontSize: "calc(12px + 0.12vw)" }}>
+        style={{ fontSize: "calc(12px + 0.12vw)" }}
+      >
         <div className="title text-secondary  fw-medium">سجل المقالات</div>
-        <span
-          onClick={closePanel}
-          role="button">
+        <span onClick={closePanel} role="button">
           <MenuIcon />
         </span>
       </div>
@@ -96,14 +95,16 @@ const HistoryArticles = () => {
       <div className={`${styles["search-box"]} position-relative `}>
         <label
           htmlFor="search"
-          className="form-label position-absolute end-0 top-50 translate-middle-y me-2">
+          className="form-label position-absolute end-0 top-50 translate-middle-y me-2"
+        >
           <span>
             <svg
               width="20"
               height="20"
               viewBox="0 0 24 24"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <g clipPath="url(#clip0_5_4933)">
                 <path
                   fillRule="evenodd"
@@ -114,11 +115,7 @@ const HistoryArticles = () => {
               </g>
               <defs>
                 <clipPath id="clip0_5_4933">
-                  <rect
-                    width="24"
-                    height="24"
-                    fill="white"
-                  />
+                  <rect width="24" height="24" fill="white" />
                 </clipPath>
               </defs>
             </svg>
@@ -129,12 +126,14 @@ const HistoryArticles = () => {
           id="exampleDataList"
           placeholder="بحث..."
           value={searchArticleQuery || ""}
-          onChange={(e) => setSearchArticleQuery(e.target.value)}></input>
+          onChange={(e) => setSearchArticleQuery(e.target.value)}
+        ></input>
       </div>
       <Stack
         gap={3}
         className="z-top"
-        style={{ fontSize: "calc(12px + 0.13vw)" }}>
+        style={{ fontSize: "calc(12px + 0.13vw)" }}
+      >
         {isLoading || isFetching ? (
           <Stack className="items-center justify-center">
             <Spinner variant="secondary" />
@@ -162,9 +161,12 @@ const HistoryArticles = () => {
                     );
 
                     if (data?.content) {
-                      dispatch(setContent(data?.content));
-                      dispatch(setTitle(data?.title || "مستند جديد"));
-                      navigate("/editor");
+                      navigate("/editor", {
+                        state: {
+                          article: data?.content,
+                          title: data?.title,
+                        },
+                      });
                     } else {
                       toast.error("لا يو جد محتوى يمكن عرضه في المحرر", {
                         style: { direction: "rtl" },
@@ -178,7 +180,8 @@ const HistoryArticles = () => {
                       }
                     );
                   }
-                }}>
+                }}
+              >
                 {selectedId === article.id && getByIdLoading && (
                   <div className="position-absolute top-0 start-0 h-100 w-100 z-1 d-flex align-items-center justify-content-center">
                     <Stack className="items-center justify-center">
@@ -188,7 +191,8 @@ const HistoryArticles = () => {
                 )}
                 <div
                   className="border rounded-3  position-relative"
-                  style={{ fontSize: "calc(12px + 0.12vw)" }}>
+                  style={{ fontSize: "calc(12px + 0.12vw)" }}
+                >
                   <div className="top text-center py-3 border-bottom px-3">
                     <PaperIcon />
                   </div>
@@ -205,7 +209,8 @@ const HistoryArticles = () => {
                     </p>
 
                     <p
-                      className={` text-text-gray  label ${styles["sub-title"]} mb-0`}>
+                      className={` text-text-gray  label ${styles["sub-title"]} mb-0`}
+                    >
                       آخر تحديث : {article?.updated_at}
                     </p>
                   </div>

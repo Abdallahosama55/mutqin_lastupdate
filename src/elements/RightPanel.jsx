@@ -36,7 +36,7 @@ const RightPanel = () => {
   const state = useAppSelector((state) => state);
   const editor = useEditor(
     {
-      content: state.checker.content,
+      content: "",
       editable: true,
       onUpdate: ({ editor }) => {
         dispatch(setContent(editor.getHTML()));
