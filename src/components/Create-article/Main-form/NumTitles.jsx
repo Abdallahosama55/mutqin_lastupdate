@@ -1,0 +1,27 @@
+import styles from "./main.module.css";
+
+export default function NumTitles({
+  changeHandler,
+  blurHandler,
+  value,
+  className,
+}) {
+  return (
+    <div className={`${className} mb-3`}>
+      <label htmlFor="num_titles" className="form-label mb-1">
+        عدد العناوين
+      </label>
+      <input
+        name="num_titles"
+        type="number"
+        min={0}
+        className={`${styles["input"]} form-control`}
+        id="num_titles"
+        placeholder="اكتب عدد العناوين التي تريد إنشائها"
+        onChange={changeHandler}
+        onBlur={blurHandler}
+        value={value}
+      />
+    </div>
+  );
+}

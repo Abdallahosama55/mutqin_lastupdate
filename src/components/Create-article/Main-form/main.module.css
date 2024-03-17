@@ -1,0 +1,121 @@
+.main-form.main-form {
+  margin-top: 20px;
+}
+.main-form.main-form label,
+.main-form.main-form .label {
+  font-size: calc(7px + 0.35vw);
+  font-weight: 550;
+}
+.input.input {
+  padding-top: calc(2px + 0.2vw);
+  padding-bottom: calc(2px + 0.2vw);
+  font-size: calc(10px + 0.2vw);
+  height: calc(16px + 1.8vw);
+  font-weight: 500;
+}
+.input[type="number"] {
+  font-size: calc(12px + 0.15vw);
+}
+
+.input.input::placeholder {
+  font-size: calc(5px + 0.4vw);
+  font-weight: 300;
+  color: var(--tint-color-text);
+}
+.hash.hash {
+  color: var(--main-color);
+  transform: translate(150%, -50%);
+  font-size: calc(11px + 0.2vw);
+  font-weight: 700;
+}
+.sub-title_btn.sub-title_btn {
+  height: calc(20px + 1.8vw);
+  width: calc(20px + 1.8vw);
+  font-size: 12px;
+}
+.sub-title_btn__del.sub-title_btn__del {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white;
+}
+.sub-title_btn__del.sub-title_btn__del:hover {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white;
+}
+.sub-title_btn__del.sub-title_btn__del:active {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white;
+}
+.sub-title_btn__add.sub-title_btn__add {
+  border: 1px solid var(--tint-border);
+}
+.sub-title_btn__add.sub-title_btn__add:hover {
+  border: 1px solid var(--tint-border);
+}
+.sub-title_btn__add.sub-title_btn__add:active {
+  border: 1px solid var(--tint-border);
+}
+
+.submit-btn.submit-btn {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white;
+  font-size: calc(9px + 0.2vw);
+  height: calc(18px + 1.7vw);
+  width: calc(125px + 3vw);
+}
+.submit-btn.submit-btn:hover {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white;
+}
+.submit-btn.submit-btn.submit-btn:active {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  color: white;
+}
+
+.to-editor-btn.to-editor-btn {
+  color: #001b79;
+  border: 1px solid var(--tint-border);
+  font-size: calc(9px + 0.2vw);
+  height: calc(20px + 1.7vw);
+  width: calc(130px + 3vw);
+}
+.to-editor-btn.to-editor-btn:hover {
+  border: 1px solid var(--tint-border);
+}
+
+.form-select.form-select {
+  background-position: left 0.75rem center;
+}
+
+.skip.skip {
+  font-size: calc(5px + 0.3vw);
+  font-weight: 700;
+  color: #001b7999;
+  margin-bottom: 0;
+}
+.arrows.arrows button {
+  cursor: pointer;
+  color: var(--main-color);
+  width: fit-content;
+  border-radius: 50%;
+  border: 1px solid var(--main-color);
+}
+.arrows.arrows button.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+input[name="num_Of_points"] {
+  width: 70px;
+}
+
+@media screen and (min-width: 1500px) {
+  .main-form.main-form {
+    margin-top: 32px;
+  }
+}
