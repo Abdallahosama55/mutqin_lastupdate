@@ -1,6 +1,6 @@
 export const allLanguages = [
   { name: "العربية", code: "ar" },
-  { name: "العامية المصرية", code: "arz" },
+  { name: "العامية المصرية", code: "العامية المصرية" },
   { name: "الإنجليزية", code: "en" },
   { name: "الفرنسية", code: "fr" },
   { name: "الإسبانية", code: "es" },
