@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./main.module.css";
 import { replaceKeywords } from "../../../redux/slices/createArticle/articleSlice";
-export default function Keywords({ className }) {
+export default function Keywords() {
   const { keywords } = useSelector((s) => s.article);
 
   const dispatch = useDispatch();
 
   return (
-    <div className={`${className} mb-3`}>
+    <div className={` mb-3`}>
       <label htmlFor="keywords" className="form-label mb-1">
         الكلمات المفتاحية
       </label>

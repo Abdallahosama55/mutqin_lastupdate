@@ -7,12 +7,12 @@ import {
 } from "../../../redux/slices/createArticle/articleSlice";
 import toast from "react-hot-toast";
 
-export default function SubTitles({ className }) {
+export default function SubTitles() {
   const { subTitles } = useSelector((s) => s.article);
   const dispatch = useDispatch();
 
   return (
-    <div className={`${className} mb-3`}>
+    <div className={` mb-3`}>
       <p htmlFor={"sub-title"} className={`${styles["label"]} form-label mb-1`}>
         العناوين الفرعية
       </p>

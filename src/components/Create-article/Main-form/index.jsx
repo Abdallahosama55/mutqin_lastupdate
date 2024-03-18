@@ -59,7 +59,8 @@ export default function MainForm({ phase, onPhaseChanched, getData, loading }) {
     }) => {
       if (!newArticleId) {
         const data = await tryCatch(generateId.bind(null, null));
-        data?.article_id && dispatch(setArticleId(data.article_id));
+        if (data?.article_id) dispatch(setArticleId(data.article_id));
+        else return;
       }
       if (loading) return;
       const validateMsgs = {
@@ -243,13 +244,10 @@ export default function MainForm({ phase, onPhaseChanched, getData, loading }) {
   // }, []);
 
   return (
-    <form
-      className={styles["main-form"]}
-      onSubmit={formik.handleSubmit}>
+    <form className={styles["main-form"]} onSubmit={formik.handleSubmit}>
       {phase !== 3 ? (
         <Subject
           value={formik.values.topic}
-          blurHandler={formik.handleBlur}
           changeHandler={formik.handleChange}
         />
       ) : (
@@ -259,7 +257,6 @@ export default function MainForm({ phase, onPhaseChanched, getData, loading }) {
       {phase === 0 ? (
         <NumKeywords
           value={formik.values.num_of_keywords}
-          blurHandler={formik.handleBlur}
           changeHandler={formik.handleChange}
         />
       ) : (
@@ -268,47 +265,40 @@ export default function MainForm({ phase, onPhaseChanched, getData, loading }) {
           {phase === 1 && (
             <NumTitles
               value={formik.values.num_titles}
-              blurHandler={formik.handleBlur}
               changeHandler={formik.handleChange}
             />
           )}
-          <ContentStyle
-            value={formik.values.tone_of_voice}
-            blurHandler={formik.handleBlur}
-            changeHandler={formik.handleChange}
-          />
+          <ContentStyle formik={formik} value={formik.values.tone_of_voice} />
         </>
       )}
-      <Language
-        value={formik.values.language}
-        phase={phase}
-        blurHandler={formik.handleBlur}
-        changeHandler={formik.handleChange}
-      />
+      <Language formik={formik} value={formik.values.language} phase={phase} />
       {phase === 3 && (
         <NumWords
           value={formik.values.num_Article_words}
-          blurHandler={formik.handleBlur}
           changeHandler={formik.handleChange}
         />
       )}
       <div
         className={`${
           phase === 1 ? "d-flex justify-content-between align-items-center" : ""
-        }`}>
+        }`}
+      >
         <div
           className={`${phase !== 1 ? "col-12" : ""} ${
             phase === 2 ? "d-flex" : ""
-          } ${phase === 3 ? "d-flex justify-content-between" : ""}`}>
+          } ${phase === 3 ? "d-flex justify-content-between" : ""}`}
+        >
           <button
             className={`${styles["submit-btn"]} btn d-flex align-items-center justify-content-center gap-2`}
             type="submit"
-            disabled={loading || generatedIdLoading}>
+            disabled={loading || generatedIdLoading}
+          >
             {loading || generatedIdLoading ? (
               <>
                 <span
                   className="spinner-border spinner-border-sm"
-                  aria-hidden="true"></span>
+                  aria-hidden="true"
+                ></span>
                 <span role="status">تحميل...</span>
               </>
             ) : phase === 0 ? (
@@ -324,7 +314,6 @@ export default function MainForm({ phase, onPhaseChanched, getData, loading }) {
 
           {phase === 2 && (
             <input
-              onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               value={formik.values.num_Of_points}
               name="num_Of_points"
@@ -353,10 +342,16 @@ export default function MainForm({ phase, onPhaseChanched, getData, loading }) {
                 // await tryCatch(
                 //   setPhase.bind(null, { id: newArticleId, phase, body })
                 // );
-                dispatch(setContent(article));
-                dispatch(setTitle(title));
-                navigate("/editor");
-              }}>
+                // dispatch(setContent(article));
+                // dispatch(setTitle(title));
+                navigate("/editor", {
+                  state: {
+                    article,
+                    title,
+                  },
+                });
+              }}
+            >
               الإنتقال إلى المحرر
             </button>
           )}

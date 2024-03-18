@@ -1,27 +1,28 @@
+import { MenuItem, Select } from "@mui/material";
 import { contentStyles } from "../../../Util/Create-article/constants";
 import styles from "./main.module.css";
-
-export default function ContentStyle({ changeHandler, blurHandler , value, className}) {
+import "./mui.css";
+export default function ContentStyle({ value, formik }) {
   return (
-    <div className={`${className} mb-3`}>
+    <div className={` mb-3`}>
       <label htmlFor="tone_of_voice" className="form-label mb-1">
         أسلوب المحتوى
       </label>
-      <select
-        name="tone_of_voice"
-        id="tone_of_voice"
-        className={`${styles["form-select"]} ${styles["input"]} form-select`}
-        onChange={changeHandler}
-        onBlur={blurHandler}
+
+      <Select
+        className={`${styles["form-select"]} ${styles["input"]}`}
         value={value}
+        name="tone_of_voice"
+        onChange={(e) => {
+          formik.setFieldValue(e.target.name, e.target.value);
+        }}
       >
-        <option value=""></option>
         {contentStyles.map((c, i) => (
-          <option key={i} value={c}>
+          <MenuItem key={i} value={c} className={`${styles["select-item"]}`}>
             {c}
-          </option>
+          </MenuItem>
         ))}
-      </select>
+      </Select>
     </div>
   );
 }

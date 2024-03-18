@@ -6,7 +6,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 // import { useLazySetPhaseQuery } from "../../../redux/slices/createArticle/createArticleEndpoints";
 import toast from "react-hot-toast";
 
-export default function Arrows({ phase, onPhaseChanched, formik }) {
+export default function Arrows({ phase, onPhaseChanched }) {
   const { keywords, title, subTitles, newArticleId } = useSelector(
     (s) => s.article
   );

@@ -16,10 +16,14 @@ import {
   setArticleId,
   setSubTitles,
   setTitle,
+  toggleShowHistory,
 } from "../../redux/slices/createArticle/articleSlice";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 function CreateArticle() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [phase, setPhase] = useState(0);
   const phaseChanched = (phase) => {
@@ -33,17 +37,24 @@ function CreateArticle() {
     useLazySubTitlesQuery();
   const [getArticle, { isFetching: articleLoading }] = useLazyArticleQuery();
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("يجب تسجيل الدخول أولا", {
+        style: { direction: "rtl" },
+      });
+      setTimeout(() => navigate("/signin"), 3000);
+    }
+    return () => {
       // Cleanup State
       dispatch(setTitle(""));
       dispatch(setSubTitles([]));
       dispatch(replaceKeywords([]));
       dispatch(setArticle(""));
       dispatch(setArticleId(""));
-    },
-    []
-  );
+      dispatch(toggleShowHistory(false));
+    };
+  }, []);
 
   return (
     <>

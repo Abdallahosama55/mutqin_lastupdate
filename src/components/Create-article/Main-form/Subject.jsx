@@ -1,8 +1,8 @@
 import styles from "./main.module.css";
 
-export default function Subject({ changeHandler, blurHandler, value ,className}) {
+export default function Subject({ changeHandler, value }) {
   return (
-    <div className={`${className} mb-3`}>
+    <div className={` mb-3`}>
       <label htmlFor="topic" className="form-label mb-1">
         الموضوع
       </label>
@@ -13,7 +13,6 @@ export default function Subject({ changeHandler, blurHandler, value ,className})
         id="topic"
         placeholder="اكتب الموضوع"
         onChange={changeHandler}
-        onBlur={blurHandler}
         value={value}
       />
     </div>
